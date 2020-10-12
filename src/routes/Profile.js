@@ -15,13 +15,15 @@ export default ({ refreshUser, userObj }) => {
             .where("creatorId", "==", userObj.uid)
             .orderBy("createdAt")
             .get();
-        console.log(nweets.docs.map((doc => doc.data())));
+        console.log(nweets.docs.map((doc) => doc.data()));
     };
     useEffect(() => {
         getMyNweets();
     }, []);
     const onChange = (event) => {
-        const {target:{value}} = event;
+        const {
+            target: { value },
+        } = event;
         setNewDisplayName(value);
     };
     const onSubmit = async (event) => {
